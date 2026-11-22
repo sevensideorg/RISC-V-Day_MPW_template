@@ -26,7 +26,7 @@ env:
 
 jobs:
   Precheck:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       top_cell: ${{ steps.cfg.outputs.top_cell }}
       layout: ${{ steps.cfg.outputs.layout }}
@@ -76,7 +76,7 @@ jobs:
           path: src/${{ steps.cfg.outputs.layout }}
 
   DRC:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: Precheck
 
     steps:
@@ -132,7 +132,7 @@ jobs:
           fi
 
   LVS:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: [Precheck, DRC]
 
     steps:
